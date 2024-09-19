@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ko">
 <head>
     <meta charset="utf-8" />
-    <title>about...</title>
+    <title>profile...</title>
 	 <link rel="stylesheet" href="homestyle.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
     <script>
         function loadMarkdown() {
-            fetch('md/abouthome.markdown') 
+            fetch('md/profile.markdown') 
                 .then(response => response.text())
                 .then(markdown => {
                     const converter = new showdown.Converter();  
                     const html = converter.makeHtml(markdown);   
                     document.getElementById('content').innerHTML = html; 
                 });
-        }
+            fetch('md/profile2.markdown') 
+                .then(response => response.text())
+                .then(markdown => {
+                    const converter = new showdown.Converter();  
+                    const html = converter.makeHtml(markdown);   
+                    document.getElementById('content2').innerHTML = html; 
+                });
+	}
     </script>
 </head>
 <body onload="loadMarkdown()">
-	<headers class="title">
-    <h1>hoshinolove...</h1>
+ 	<headers class="title">   
+		<h1>페이지 준비중</h1>
 	</headers>
 	<div class="content">
-		<div class="aboutimg">
-			<img src="img/aboutmain.png">
-		</div>
+	 <details>
+		<summary>KURO</summary>
 		<div id="content"></div>
-		    <a href="../home.html">
-        home
+	 </details>
+	 <details>
+	 	<summary>HOSHINO</summary>
+		<div id="content2"></div>
+	 </details>
+	    <a href="../home.html">
+home
     </a>
 	</div>
 

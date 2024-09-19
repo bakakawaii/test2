@@ -4,10 +4,24 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script>
+        function loadMarkdown() {
+            fetch('asart.md') 
+                .then(response => response.text())
+                .then(markdown => {
+                    const converter = new showdown.Converter();  
+                    const html = converter.makeHtml(markdown);   
+                    document.getElementById('content').innerHTML = html; 
+                });
+        }
+    </script>
 </head>
-<body>
- <a href="home.html">
-     이동하기
- </a>
+<body onload=loadMarkdown()>
+	<pre>귀여운 플랑</pre>
+	<div id="content"></div>
+	<a href="home.html">
+     홈페이지로...
+	</a>
 </body>
 </html>
