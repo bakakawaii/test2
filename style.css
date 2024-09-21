@@ -1,0 +1,42 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    color: cyan;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+}
+
+.mainimg {
+    max-width: 400px;
+    max-height:400px;
+    width: 100%;
+    height: auto;
+    object-fit: fill;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* 이미지 부모 요소가 너무 작지 않도록 mainimg에 padding 추가 가능 */
+    .mainimg img {
+        width: 100%;
+        height: auto;
+    }
+
+nav{
+    padding:10px
+}

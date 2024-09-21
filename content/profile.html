@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <title>profile...</title>
+    <link rel="stylesheet" href="homestyle.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    
+    <script>
+        function loadMarkdown() {
+            fetch('md/profile.markdown') 
+                .then(response => response.text())
+                .then(markdown => {
+                    const converter = new showdown.Converter();  
+                    const html = converter.makeHtml(markdown);   
+                    document.getElementById('content').innerHTML = html; 
+                });
+            
+            fetch('md/profile2.markdown') 
+                .then(response => response.text())
+                .then(markdown => {
+                    const converter = new showdown.Converter();  
+                    const html = converter.makeHtml(markdown);   
+                    document.getElementById('content2').innerHTML = html; 
+                });
+        }
+    </script>
+
+    <!-- 여기에 빠져있던 닫는 태그를 추가했습니다 -->
+    <script>
+        function pwChk() {
+            var pwInput = document.num.pw.value;
+
+            if (pwInput === "0000") {
+                document.getElementById("profile").style.display = "block";
+                loadMarkdown();  
+            } else {
+                alert("비밀번호가 틀렸습니다.");
+            }
+        }
+    </script>
+
+    <style>
+        #profile {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <headers class="title">   
+        <h1>페이지 준비중</h1>
+    </headers>
+    <div class="pass">
+        <form name="num">
+            <input type="password" name="pw" placeholder="비밀번호">
+            <input type="button" value="login" onclick="pwChk()">
+        </form>
+    </div>
+    <div class="content" id="profile">
+        <img src="img/kuroprofile.png" class="charaprofile" alt="쿠로의두상이미지" />
+        <details>
+            <summary>KURO</summary>
+            <div id="content"></div>
+        </details>
+        <img src="img/hoshiprofile.png" class="charaprofile" alt="호시노의두상이미지" />
+        <details>
+            <summary>HOSHINO</summary>
+            <div id="content2"></div>
+        </details>
+        <a href="../home.html">home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>about...</title>
+	 <link rel="stylesheet" href="homestyle.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
+    <script>
+        function loadMarkdown() {
+            fetch('md/abouthome.markdown') 
+                .then(response => response.text())
+                .then(markdown => {
+                    const converter = new showdown.Converter();  
+                    const html = converter.makeHtml(markdown);   
+                    document.getElementById('content').innerHTML = html; 
+                });
+        }
+    </script>
+</head>
+<body onload="loadMarkdown()">
+	<headers class="title">
+    <h1>hoshinolove...</h1>
+	</headers>
+	<div class="content">
+		<div class="aboutimg">
+			<img src="img/aboutmain.png">
+		</div>
+		<div id="content"></div>
+        <a href="../home.html">home</a>
+	</div>
+
+</body>
+</html>
